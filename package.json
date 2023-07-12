@@ -1,12 +1,15 @@
 {
-    "name": "babel-plugin-catch-reporter",
-    "version": "0.1.4",
+    "name": "babel-plugin-catch-logger",
+    "version": "0.1.12",
     "description": "A babel plugin that automatically reports errors in your program",
     "main": "lib/index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "compile": "rimraf lib && babel src --out-dir lib"
     },
+    "files": [
+        "lib"
+    ],
     "keywords": [
         "babel",
         "catch",
@@ -17,11 +20,11 @@
     "license": "ISC",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/catmorphic/babel-plugin-catch-reporter.git"
+        "url": "git+https://github.com/catmorphic/babel-plugin-catch-logger.git"
     },
-    "homepage": "https://github.com/catmorphic/babel-plugin-catch-reporter#readme",
+    "homepage": "https://github.com/catmorphic/babel-plugin-catch-logger#readme",
     "bugs": {
-        "url": "https://github.com/catmorphic/babel-plugin-catch-reporter/issues"
+        "url": "https://github.com/catmorphic/babel-plugin-catch-logger/issues"
     },
     "dependencies": {
         "@babel/helper-plugin-utils": "^7.10.4",

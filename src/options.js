@@ -29,7 +29,7 @@ function getMatcher(matcher, matcherName, defaultMatcher = []) {
 }
 
 function getSourceMatcher() {
-    return ['.*js(x)?$']
+    return ['.*js(x)?$', 'ts', 'tsx']
 }
 
 function getSourceExcludeMatcher() {

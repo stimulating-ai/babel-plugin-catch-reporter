@@ -1,4 +1,4 @@
-# babel-plugin-catch-reporter
+# babel-plugin-catch-logger
 
 A babel plugin that:
 
@@ -22,7 +22,7 @@ A babel plugin that:
 {
     "plugins": [
         [
-            "babel-plugin-catch-reporter",
+            "babel-plugin-catch-logger",
             {
                 "name": "Sentry",
                 "source": "@sentry/node",

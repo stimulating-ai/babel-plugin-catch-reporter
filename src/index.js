@@ -7,7 +7,7 @@ function babelPluginAutoReportError(api) {
     api.assertVersion(7)
 
     return {
-        name: 'babel-plugin-catch-reporter',
+        name: 'babel-plugin-catch-logger',
         post,
         pre,
         visitor: {

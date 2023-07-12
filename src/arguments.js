@@ -29,8 +29,8 @@ function getFunction(path, _, knownData) {
     }
 
     const identifierArgs = argumentsToAdd.map((identifierName) => {
-        return types.identifier(identifierName)
-    })
+        return identifierName && types.identifier(identifierName)
+    }).filter(Boolean)
 
     return identifierArgs
 }
