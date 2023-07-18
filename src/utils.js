@@ -142,6 +142,7 @@ function insertLogging(path, insertPath, state, partialData) {
 
     const methodName = state.babelPluginLoggerSettings.methodName
     if (methodName) {
+        const sourceLocation = types.stringLiteral(`file: ${knownData.source || ''} line: ${knownData.line || ''} column: ${knownData.column || ''}`)
         insertPath.unshiftContainer(
             'body',
             types.expressionStatement(
@@ -150,7 +151,7 @@ function insertLogging(path, insertPath, state, partialData) {
                         types.identifier(getLoggerName(state)),
                         types.identifier(methodName)
                     ),
-                    getArgs(path, state, knownData)
+                   [... getArgs(path, state, knownData), sourceLocation],
                 )
             )
         )
