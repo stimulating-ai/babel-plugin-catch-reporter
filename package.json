@@ -1,6 +1,6 @@
 {
     "name": "babel-plugin-catch-logger",
-    "version": "0.1.12",
+    "version": "0.1.13",
     "description": "A babel plugin that automatically reports errors in your program",
     "main": "lib/index.js",
     "scripts": {
