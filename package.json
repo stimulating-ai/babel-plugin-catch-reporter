@@ -2,7 +2,7 @@
     "name": "babel-plugin-catch-logger",
     "version": "0.1.13",
     "description": "A babel plugin that automatically reports errors in your program",
-    "main": "src/index.js",
+    "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "compile": "rimraf lib && babel src --out-dir lib"
