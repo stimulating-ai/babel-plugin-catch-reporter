@@ -1,4 +1,4 @@
-import { LOGGER_API } from './constants'
+const { LOGGER_API } = require('./constants');
 
 function getMatcher(matcher, matcherName, defaultMatcher = []) {
     let matcherForRegExp
@@ -67,7 +67,7 @@ function getOutput(settings) {
     return options
 }
 
-export function getOptions(loggingData) {
+function getOptions(loggingData) {
     const options = {}
     const { name, source, methodName } = loggingData || {}
 
@@ -83,7 +83,7 @@ export function getOptions(loggingData) {
     return { ...loggingData, ...options }
 }
 
-export function prepare(receivedOptions) {
+function prepare(receivedOptions) {
     const options = {}
 
     options.sourceMatcher = getMatcher(
@@ -101,3 +101,8 @@ export function prepare(receivedOptions) {
     options.output = getOutput(receivedOptions.output)
     return { ...options, ...getOptions(receivedOptions) }
 }
+
+module.exports = {
+    getOptions,
+    prepare
+};

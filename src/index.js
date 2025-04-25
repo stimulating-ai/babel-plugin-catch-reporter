@@ -1,21 +1,21 @@
-import { declare } from '@babel/helper-plugin-utils'
+const { declare } = require('@babel/helper-plugin-utils');
 
-import { pre, post } from './setup'
-import { Program, CatchClause, CallExpression } from './visitors'
+const setup = require('./setup');
+const visitors = require('./visitors');
 
 function babelPluginAutoReportError(api) {
     api.assertVersion(7)
 
     return {
         name: 'babel-plugin-catch-logger',
-        post,
-        pre,
+        post: setup.post,
+        pre: setup.pre,
         visitor: {
-            CatchClause,
-            Program: { exit: Program },
-            CallExpression,
+            CatchClause: visitors.CatchClause,
+            Program: { exit: visitors.Program },
+            CallExpression: visitors.CallExpression,
         },
     }
 }
 
-export default declare(babelPluginAutoReportError)
+module.exports = declare(babelPluginAutoReportError);

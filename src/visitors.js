@@ -1,20 +1,20 @@
-import * as types from '@babel/types'
-import {
+const types = require('@babel/types');
+const {
     isValidPathAndState,
     addLogger,
     getLoggerName,
     getLoggerSource,
-} from './utils'
-import {
+} = require('./utils');
+const {
     promiseCatchStatement,
     promiseCatchEnhancer,
     returnStatement,
-} from './template'
-import { LOGGER_API } from './constants'
+} = require('./template');
+const { LOGGER_API } = require('./constants');
 
-const expressionCache = new Set()
+const expressionCache = new Set();
 
-export function Program(path, state) {
+function Program(path, state) {
     if (!state.caught) return
     const validPathAndState = isValidPathAndState(path, state)
 
@@ -43,7 +43,7 @@ export function Program(path, state) {
     }
 }
 
-export function CatchClause(path, state) {
+function CatchClause(path, state) {
     const validPathAndState = isValidPathAndState(path, state)
 
     if (validPathAndState) {
@@ -71,7 +71,7 @@ function findOutmostCallExp(path) {
     return path
 }
 
-export function CallExpression(path, state) {
+function CallExpression(path, state) {
     if (!path.node.loc || !state.babelPluginLoggerSettings.catchPromise) return
     let methodName = getCalleeName(path.node.callee)
     if (methodName === 'then' || methodName === 'catch') {
@@ -129,3 +129,9 @@ export function CallExpression(path, state) {
         }
     }
 }
+
+module.exports = {
+    Program,
+    CatchClause,
+    CallExpression
+};

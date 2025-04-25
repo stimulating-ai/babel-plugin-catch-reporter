@@ -1,4 +1,4 @@
-export function getSrc(state) {
+function getSrc(state) {
     const {
         parserOpts,
         root,
@@ -18,3 +18,7 @@ export function getSrc(state) {
 
     return sourceFile || ''
 }
+
+module.exports = {
+    getSrc
+};

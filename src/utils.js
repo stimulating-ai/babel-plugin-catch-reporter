@@ -1,7 +1,7 @@
-import * as types from '@babel/types'
-import { getArgs } from './arguments'
-import { getSrc } from './source-file'
-import { MEMBER_EXPRESSION_CATCH } from './constants'
+const types = require('@babel/types');
+const { getArgs } = require('./arguments');
+const { getSrc } = require('./source-file');
+const { MEMBER_EXPRESSION_CATCH } = require('./constants');
 
 function hasLogging(bodyNode, state) {
     const isExpressionStatement = types.isExpressionStatement(bodyNode)
@@ -158,15 +158,15 @@ function insertLogging(path, insertPath, state, partialData) {
     }
 }
 
-export function getLoggerName(state) {
+function getLoggerName(state) {
     return state.babelPluginLoggerSettings.name
 }
 
-export function getLoggerSource(state) {
+function getLoggerSource(state) {
     return state.babelPluginLoggerSettings.source
 }
 
-export function isValidPathAndState(path, state) {
+function isValidPathAndState(path, state) {
     if (path.node._generated) {
         return false
     }
@@ -188,7 +188,7 @@ export function isValidPathAndState(path, state) {
     return !excludeFromSource
 }
 
-export function addLogger(path, state) {
+function addLogger(path, state) {
     const name = getName(path)
 
     if (!name) {
@@ -223,3 +223,10 @@ export function addLogger(path, state) {
 
     return false
 }
+
+module.exports = {
+    getLoggerName,
+    getLoggerSource,
+    isValidPathAndState,
+    addLogger
+};

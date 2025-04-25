@@ -1,15 +1,21 @@
-import template from 'babel-template'
+const template = require('babel-template');
 
-export const promiseCatchStatement = template(`
+const promiseCatchStatement = template(`
   BODY.catch(function(ERR){
       HANDLER(ERR)
-  })`)
+  })`);
 
-export const promiseCatchEnhancer = template(`{
+const promiseCatchEnhancer = template(`{
      HANDLER(ARGUMENTS)
     BODY
- }`)
+ }`);
 
-export const returnStatement = template(`{
+const returnStatement = template(`{
     return STATEMENT
-}`)
+}`);
+
+module.exports = {
+    promiseCatchStatement,
+    promiseCatchEnhancer,
+    returnStatement
+};

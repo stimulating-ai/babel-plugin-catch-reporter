@@ -1,5 +1,5 @@
-import * as types from '@babel/types'
-import { MEMBER_EXPRESSION_CATCH } from './constants'
+const types = require('@babel/types');
+const { MEMBER_EXPRESSION_CATCH } = require('./constants');
 
 function getSceneInfo(knownData) {
     const sceneInfo = `[${knownData.source}:${knownData.line}:${knownData.column}]`
@@ -35,10 +35,14 @@ function getFunction(path, _, knownData) {
     return identifierArgs
 }
 
-export function getArgs(path, state, knownData) {
+function getArgs(path, state, knownData) {
     // ignore for now:
     // const sceneInfo = getSceneInfo(knownData)
     const fnArgs = getFunction(path, state, knownData)
 
     return [...fnArgs]
 }
+
+module.exports = {
+    getArgs
+};

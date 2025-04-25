@@ -1,9 +1,14 @@
-import { prepare } from './options'
+const { prepare } = require('./options');
 
-export function pre() {
+function pre() {
     this.babelPluginLoggerSettings = prepare(this.opts)
 }
 
-export function post() {
+function post() {
     this.babelPluginLoggerSettings = undefined
 }
+
+module.exports = {
+    pre,
+    post
+};
